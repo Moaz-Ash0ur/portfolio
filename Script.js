@@ -1,24 +1,19 @@
-//Scroll Btn
-window.onscroll = function() {
-    const btn = document.getElementById("scrollTopBtn");
-    const aboutSection = document.querySelector(".about");
-    if (window.scrollY > aboutSection.offsetTop + aboutSection.offsetHeight) {
-        btn.style.display = "block";
-    } else {
-        btn.style.display = "none";
-    }
+window.onscroll = function () {
+  const btn = document.getElementById("scrollTopBtn");
+  const aboutSection = document.querySelector(".about");
+  if (window.scrollY > aboutSection.offsetTop + aboutSection.offsetHeight) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
+  }
 };
 
-document.getElementById("scrollTopBtn").addEventListener("click", function() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+document.getElementById("scrollTopBtn").addEventListener("click", function () {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
 });
-
-
-
-
 
 let words = document.querySelectorAll(".word");
 words.forEach((word) => {
@@ -50,9 +45,12 @@ let changeText = () => {
   nextWord.style.opacity = "1";
   Array.from(nextWord.children).forEach((letter, i) => {
     letter.className = "letter behind";
-    setTimeout(() => {
-      letter.className = "letter in";
-    }, 340 + i * 80);
+    setTimeout(
+      () => {
+        letter.className = "letter in";
+      },
+      340 + i * 80,
+    );
   });
 
   currentWordIndex =
@@ -62,7 +60,6 @@ let changeText = () => {
 changeText();
 setInterval(changeText, 3000);
 
-// دائرة الشيل //////////////////
 const circles = document.querySelectorAll(".circle");
 circles.forEach((elem) => {
   var dots = parseInt(elem.getAttribute("data-dots")); // تحويل إلى رقم
@@ -82,7 +79,6 @@ circles.forEach((elem) => {
   }
 });
 
-//active menu//////////////////////
 let menuLi = document.querySelectorAll("header ul li a");
 let section = document.querySelectorAll("section");
 
@@ -96,13 +92,11 @@ function activeMenu() {
 activeMenu();
 window.addEventListener("scroll", activeMenu);
 
-//Sticky navbar //////////////////
 const header = document.querySelector("header");
 window.addEventListener("scroll", function () {
   header.classList.toggle("Sticky", window.scrollY > 50);
 });
 
-//// toggle icon navbar///////////////
 document.getElementById("menu-icon").addEventListener("click", function () {
   document.querySelector(".navlist").classList.toggle("open");
   this.classList.toggle("bx-x");
@@ -120,8 +114,6 @@ menuIcon.onscroll = () => {
   menuIcon.classList.remove("bx-x");
   navlist.classList.remove("open");
 };
-
-//// Parallax////////
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
@@ -142,35 +134,68 @@ scrollBottom.forEach((el) => observer.observe(el));
 const scrollTop = document.querySelectorAll(".scroll-Top");
 scrollTop.forEach((el) => observer.observe(el));
 
-
 //Project Tab
-// تحديد الأزرار والبطاقات
 const tabButtons = document.querySelectorAll(".filter-buttons .btn");
 const projectCards = document.querySelectorAll(".project-box");
 
-tabButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-        // 1. تغيير الزر النشط (Active Class)
-        tabButtons.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
+tabButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    tabButtons.forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
 
-        // 2. الحصول على الفئة المختارة من الـ Data Attribute
-        const filterValue = btn.getAttribute("data-filter");
+    const filterValue = btn.getAttribute("data-filter");
 
-        // 3. التحكم في ظهور البطاقات
-        projectCards.forEach(card => {
-            const cardCategory = card.getAttribute("data-category");
+    projectCards.forEach((card) => {
+      const cardCategory = card.getAttribute("data-category");
 
-            if (filterValue === "all" || filterValue === cardCategory) {
-                card.style.display = "block"; // أظهر البطاقة
-                // إضافة أنيميشن بسيط عند الظهور
-                card.style.animation = "fadeIn 0.5s ease forwards";
-            } else {
-                card.style.display = "none"; // أخفِ البطاقة
-            }
-        });
+      if (filterValue === "all" || filterValue === cardCategory) {
+        card.style.display = "block";
+
+        card.style.animation = "fadeIn 0.5s ease forwards";
+      } else {
+        card.style.display = "none";
+      }
     });
+  });
 });
 
+/* ================= Projects Modal ================= */
+
+const modal = document.getElementById("projectModal");
+const openBtns = document.querySelectorAll(".open-modal");
+const closeBtn = document.querySelector(".close-modal");
+
+const modalTitle = document.getElementById("modalTitle");
+const modalDesc = document.getElementById("modalDesc");
+const modalVideo = document.getElementById("modalVideo");
+const modalItems = document.getElementById("modalItems");
 
 
+openBtns.forEach((btn) => {
+  btn.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    modal.classList.add("active");
+
+    modalTitle.innerText = this.dataset.title;
+    modalDesc.innerText = this.dataset.desc;
+    modalVideo.src = this.dataset.video;
+
+    modalItems.innerHTML = this.dataset.items
+      .split("|")
+      .map((i) => `<li>${i.trim()}</li>`)
+      .join("");
+  });
+});
+
+closeBtn.onclick = () => {
+  modal.classList.remove("active");
+  modalVideo.src = "";
+};
+
+window.onclick = (e) => {
+  if (e.target == modal) {
+    modal.classList.remove("active");
+    modalVideo.src = "";
+  }
+};

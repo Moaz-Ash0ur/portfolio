@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects Section</title>
+    <style>
+      :root {
+        --bg: #0f172a;
+        --card: #111827cc;
+        --line: #22d3ee;
+        --text: #f8fafc;
+        --muted: #94a3b8;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #020617, #0f172a);
+        color: var(--text);
+      }
+      section {
+        padding: 70px 8%;
+      }
+      .heading {
+        text-align: center;
+        font-size: 42px;
+        margin: 0 0 10px;
+      }
+      .sub {
+        text-align: center;
+        color: var(--muted);
+        max-width: 760px;
+        margin: 0 auto 40px;
+        line-height: 1.7;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 28px;
+      }
+      .card {
+        background: var(--card);
+        backdrop-filter: blur(12px);
+        border: 1px solid #1e293b;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+        transition: 0.35s;
+      }
+      .card:hover {
+        transform: translateY(-10px);
+        border-color: var(--line);
+        box-shadow: 0 0 25px #22d3ee55;
+      }
+      .thumb {
+        height: 220px;
+        background: #0b1220;
+      }
+      .thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .content {
+        padding: 24px;
+      }
+      .content h3 {
+        margin: 0 0 12px;
+        font-size: 26px;
+      }
+      .content p {
+        color: var(--muted);
+        line-height: 1.7;
+        min-height: 72px;
+      }
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 18px 0;
+      }
+      .tag {
+        padding: 7px 12px;
+        border-radius: 99px;
+        background: #1e293b;
+        font-size: 13px;
+      }
+      .actions {
+        display: flex;
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .btn {
+        padding: 12px 18px;
+        border-radius: 12px;
+        text-decoration: none;
+        color: white;
+        border: 1px solid #334155;
+        cursor: pointer;
+        background: transparent;
+      }
+      .primary {
+        background: var(--line);
+        color: #001018;
+        border: none;
+        font-weight: 700;
+      }
+      .modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.75);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        z-index: 99;
+      }
+      .modal.show {
+        display: flex;
+      }
+      .panel {
+        width: min(960px, 100%);
+        background: #0f172a;
+        border: 1px solid #1e293b;
+        border-radius: 24px;
+        padding: 28px;
+        position: relative;
+        max-height: 90vh;
+        overflow: auto;
+      }
+      .close {
+        position: absolute;
+        right: 18px;
+        top: 14px;
+        font-size: 30px;
+        cursor: pointer;
+      }
+      .video {
+        width: 100%;
+        aspect-ratio: 16/9;
+        border: none;
+        border-radius: 18px;
+        background: #000;
+        margin: 18px 0;
+      }
+      .list {
+        color: var(--muted);
+        line-height: 1.9;
+      }
+    </style>
+  </head>
+  <body>
+
+    <section>
+      <h2 class="heading">Featured Projects</h2>
+      <p class="sub">
+        Production-grade backend systems built with clean architecture, scalable
+        APIs, security best practices, and real business workflows.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <div class="thumb"><img src="Image/ClinicManagementApi.png" /></div>
+          <div class="content">
+            <h3>Clinic Management API</h3>
+            <p>
+              Modern healthcare backend for appointments, billing, records, and
+              secure role-based access.
+            </p>
+            <div class="tags">
+              <span class="tag">ASP.NET Core</span
+              ><span class="tag">Clean Architecture</span
+              ><span class="tag">CQRS</span><span class="tag">JWT</span>
+            </div>
+            <div class="actions">
+              <button class="btn primary open" data-project="clinic">
+                View Details</button
+              ><a
+                class="btn"
+                href="https://github.com/Moaz-Ash0ur/Clinic_Management_System.API.git"
+                >Source</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="thumb"><img src="Image/MechanicShopApi.png" /></div>
+          <div class="content">
+            <h3>Mechanic Workshop API</h3>
+            <p>
+              Repair shop management system for vehicles, work orders,
+              customers, and staff operations.
+            </p>
+            <div class="tags">
+              <span class="tag">REST API</span><span class="tag">MediatR</span
+              ><span class="tag">Testing</span>
+            </div>
+            <div class="actions">
+              <button class="btn primary open" data-project="mechanic">
+                View Details</button
+              ><a
+                class="btn"
+                href="https://github.com/Moaz-Ash0ur/MechanicShopWorkshop.API.git"
+                >Source</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="thumb"><img src="Image/Shipping.png" /></div>
+          <div class="content">
+            <h3>Shipping System</h3>
+            <p>
+              Shipment tracking platform with dashboards, subscriptions, and
+              multi-role operations.
+            </p>
+            <div class="tags">
+              <span class="tag">MVC</span><span class="tag">API</span
+              ><span class="tag">PayPal</span>
+            </div>
+            <div class="actions">
+              <button class="btn primary open" data-project="shipping">
+                View Details</button
+              ><a class="btn" href="https://github.com/Moaz-Ash0ur/Shipping.git"
+                >Source</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <div class="modal" id="modal">
+      <div class="panel">
+        <span class="close">&times;</span>
+        <div id="details"></div>
+      </div>
+    </div>
+
+
+
+
+    <script>
+      const data = {
+        clinic: {
+          title: "Clinic Management API",
+          video: "https://youtu.be/2xhzJjFSKTg",
+          desc: "Comprehensive backend for clinics and medical centers.",
+          items: [
+            "Patients, Doctors, Appointments",
+            "Invoices, Payments, Medical Records",
+            "JWT + Refresh Tokens",
+            "Global Exception Handling",
+            "Paymob Integration",
+          ],
+        },
+        mechanic: {
+          title: "Mechanic Workshop API",
+          video: "https://www.youtube.com/embed/2xhzJjFSKTg",
+          desc: "Automotive repair management backend.",
+          items: [
+            "Vehicles and Customers",
+            "Work Orders & Repairs",
+            "Employees Management",
+            "Unit + Integration Tests",
+          ],
+        },
+        shipping: {
+          title: "Shipping System",
+          video: "https://youtu.be/2xhzJjFSKTg",
+          desc: "End-to-end shipping workflow platform.",
+          items: [
+            "Track shipments",
+            "Subscriptions",
+            "Admin dashboard",
+            "Role permissions",
+          ],
+        },
+      };
+      const modal = document.getElementById("modal");
+      const details = document.getElementById("details");
+      document.querySelectorAll(".open").forEach(
+        (b) =>
+          (b.onclick = () => {
+            const p = data[b.dataset.project];
+            details.innerHTML = `<h2>${p.title}</h2><p style='color:#94a3b8'>${p.desc}</p><iframe class='video' src='${p.video}' allowfullscreen></iframe><ul class='list'>${p.items.map((i) => `<li>${i}</li>`).join("")}</ul>`;
+            modal.classList.add("show");
+          }),
+      );
+      document.querySelector(".close").onclick = () =>
+        modal.classList.remove("show");
+      modal.onclick = (e) => {
+        if (e.target === modal) modal.classList.remove("show");
+      };
+    </script>
+  </body>
+</html>
+
+  <!-- <section class="projects" id="projects">
+      <div class="main-text">
+        <h2 class="heading">Latest Projects</h2>
+        <span
+          >Showcasing my journey in building end-to-end applications, from
+          architecting robust APIs to crafting seamless user experiences.</span
+        >
+      </div>
+
+      <div class="filter-buttons">
+        <button class="btn active" data-filter="all">All</button>
+        <button class="btn" data-filter="backend">Backend</button>
+        <button class="btn" data-filter="fullstack">FullStack</button>
+      </div>
+
+      <div class="project-container">
+        <div class="project-box" data-category="backend">
+          <div class="project-img">
+            <img src="Image/MechanicShopApi.png" alt="Project Name" />
+          </div>
+          <div class="project-content">
+            <h3>Mechanic Shop</h3>
+            <p>
+              A Mechanic Shop management system designed to handle automotive
+              repair shop operations efficiently. The system manages customers,
+              vehicles, repair tasks, work orders, and employees.
+            </p>
+
+            <div class="tags">
+              <span class="tag">.net core RESTful Api</span>
+              <span class="tag">Clean Architecture</span>
+              <span class="tag">Mediator</span>
+              <span class="tag">CQRS & Result Pattern</span>
+              <span class="tag"
+                >Secure authentication using JWT with custom authorization
+                policies</span
+              >
+              <span class="tag">Background Services and Real Time Update</span>
+              <span class="tag">xUnit ,Subcutaneous and Integration Tests</span>
+            </div>
+
+            <div class="project-links">
+              <a
+                href="https://github.com/Moaz-Ash0ur/MechanicShopWorkshop.API.git"
+                class="link-btn source"
+                >Source</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="project-box" data-category="backend">
+          <div class="project-img">
+            <img
+              src="Image/ClinicManagementApi.png"
+              alt="Clinic Management System"
+            />
+          </div>
+
+          <div class="project-content">
+            <h3>Clinic Management System</h3>
+            <p>
+              A comprehensive backend system designed to manage clinic
+              operations such as patients, doctors, appointments, invoices,
+              payments, and medical records. The system follows Clean
+              Architecture principles to ensure scalability, maintainability,
+              and secure role-based access.
+            </p>
+
+            <div class="tags">
+              <span class="tag">ASP.NET Core Web API</span>
+              <span class="tag">Clean Architecture , CQRS & MediatR</span>
+              <span class="tag">Rate Limiting</span>
+              <span class="tag">Custom Problem Details (RFC 9457)</span>
+              <span class="tag">Global Exception Handling</span>
+              <span class="tag">Repository & Unit of Work</span>
+              <span class="tag">JWT Authentication & Refresh Tokens</span>
+              <span class="tag">Payment Gateway Integration (Paymob)</span>
+            </div>
+
+            <div class="project-links">
+              <a
+                href="https://github.com/Moaz-Ash0ur/Clinic_Management_System.API.git"
+                class="link-btn source"
+              >
+                Source
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-box" data-category="backend">
+          <div class="project-img">
+            <img src="Image/InventoryApi.png" alt="Project Name" />
+          </div>
+          <div class="project-content">
+            <h3>Inventory Management System</h3>
+            <p>
+              A backend Inventory Management designed to help businesses
+              efficiently manage products, stock levels, purchases, and sales.
+              It ensures accurate tracking and role-based operations for
+              seamless business management.
+            </p>
+
+            <div class="tags">
+              <div class="tags">
+                <span class="tag">.Net core RESTful Api</span>
+                <span class="tag">N-Tier</span>
+                <span class="tag">EF Core & Stored Procedure</span>
+                <span class="tag">Applied Repository & Unit of Work</span>
+              </div>
+            </div>
+
+            <div class="project-links">
+              <a
+                href="https://github.com/Moaz-Ash0ur/Inventory-Management-API.git"
+                class="link-btn source"
+                >Source</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="project-box" data-category="fullstack">
+          <div class="project-img">
+            <img src="Image/Shipping.png" alt="Project Name" />
+          </div>
+          <div class="project-content">
+            <h3>Shipping System</h3>
+            <p>
+              A comprehensive system for managing shipments, tracking statuses,
+              and handling users & subscriptions. Includes an admin dashboard
+              for multiple roles (Admin, Reviewer, Operation Manager) to manage
+              shipment types, statuses, and operations.
+            </p>
+
+            <div class="tags">
+              <span class="tag">ASP.NET CORE( MVC | API )</span>
+              <span class="tag">N-Tier</span>
+              <span class="tag">EF Core & Stored Procedure</span>
+              <span class="tag">Factory and Strategy Design Pattern</span>
+              <span class="tag">Integrated PayPal for Payment</span>
+            </div>
+
+            <div class="project-links">
+              <a
+                href="https://github.com/Moaz-Ash0ur/Shipping.git"
+                class="link-btn source"
+                >Source</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="project-box" data-category="fullstack">
+          <div class="project-img">
+            <img src="Image/ecommerce.png" alt="Project Name" />
+          </div>
+          <div class="project-content">
+            <h3>E-Commerce Website (MVC)</h3>
+            <p>
+              A full-featured online store where users can browse products, add
+              items to cart, place orders and Includes an admin panel to manage
+              products, orders, and users.
+            </p>
+
+            <div class="tags">
+              <span class="tag">ASP.NET Core MVC</span>
+              <span class="tag">Fetch Api & Ajax Call</span>
+              <span class="tag">JavaScript</span>
+            </div>
+
+            <div class="project-links">
+              <a
+                href="https://github.com/Moaz-Ash0ur/E-Commerce-WebApp-MVC.git"
+                class="link-btn source"
+                >Source</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+
+    <!-- .project-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 2.5rem;
+}
+
+
+
+.project-box {
+    background: var(--secon-bg-color);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(18, 247, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.project-box:hover {
+    transform: translateY(-10px);
+    border-color: var(--hover-color);
+    box-shadow: var(--neon-box-shadow);
+}
+
+.project-img {
+    width: 100%;
+    height: 260px; 
+    overflow: hidden;
+}
+
+.project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-content {
+    padding: 1.5rem;
+}
+
+.project-content h3 {
+    font-size: 1.5rem;
+    color: var(--hover-color);
+    margin-bottom: 1rem;
+}
+
+.project-content p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #bdbdbd;
+    margin-bottom: 1.2rem;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.tag {
+    background: #323946;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    color: var(--text-color);
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+
+}
+
+.link-btn {
+  padding: 8px 18px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: 
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.link-btn.source {
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+  background: transparent;
+}
+
+.link-btn.source:hover {
+  background: var(--hover-color);
+  color: var(--bg-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.link-btn.live {
+  background: var(--hover-color);
+  color: var(--bg-color);
+  font-weight: 600;
+}
+
+.link-btn.live:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--text-color);
+} -->

@@ -28,7 +28,10 @@
         <li><a href="#home" style="--i: 1">Home</a></li>
         <li><a href="#about" style="--i: 1"> About</a></li>
         <li><a href="#skills" style="--i: 1">Skills</a></li>
+
         <li><a href="#projects " style="--i: 1">Projects</a></li>
+        <li><a href="#blogs" style="--i: 1">Blogs</a></li>
+
         <li><a href="#education " style="--i: 1">Education</a></li>
         <li><a href="#contact" style="--i: 1"> Contact</a></li>
       </ul>
@@ -172,87 +175,55 @@
       </div>
     </section>
 
+    <!-- ================= Projects Section Final ================= -->
     <section class="projects" id="projects">
       <div class="main-text">
-        <h2 class="heading">Latest Projects</h2>
-        <span
-          >Showcasing my journey in building end-to-end applications, from
-          architecting robust APIs to crafting seamless user experiences.</span
-        >
+        <h2 class="heading">Featured Projects</h2>
+        <span>
+          Showcasing real-world systems built with scalable architecture, secure
+          APIs, and modern backend solutions.
+        </span>
       </div>
 
       <div class="filter-buttons">
         <button class="btn active" data-filter="all">All</button>
         <button class="btn" data-filter="backend">Backend</button>
-        <button class="btn" data-filter="fullstack">FullStack</button>
       </div>
 
       <div class="project-container">
+        <!-- Project 1 -->
         <div class="project-box" data-category="backend">
           <div class="project-img">
-            <img src="Image/MechanicShopApi.png" alt="Project Name" />
+            <img src="Image/ClinicManagementApi.png" />
           </div>
+
           <div class="project-content">
-            <h3>Mechanic Shop</h3>
+            <h3>Clinic Management API</h3>
+
             <p>
-              A Mechanic Shop management system designed to handle automotive
-              repair shop operations efficiently. The system manages customers,
-              vehicles, repair tasks, work orders, and employees.
+              Scalable clinic backend for appointments, billing, records, and
+              secure access.
             </p>
 
             <div class="tags">
-              <span class="tag">.net core RESTful Api</span>
+              <span class="tag">ASP.NET Core</span>
               <span class="tag">Clean Architecture</span>
-              <span class="tag">Mediator</span>
-              <span class="tag">CQRS & Result Pattern</span>
-              <span class="tag"
-                >Secure authentication using JWT with custom authorization
-                policies</span
-              >
-              <span class="tag">Background Services and Real Time Update</span>
-              <span class="tag">xUnit ,Subcutaneous and Integration Tests</span>
+              <span class="tag">CQRS</span>
+              <span class="tag">JWT</span>
             </div>
 
             <div class="project-links">
               <a
-                href="https://github.com/Moaz-Ash0ur/MechanicShopWorkshop.API.git"
-                class="link-btn source"
-                >Source</a
+                href="#"
+                class="link-btn live open-modal"
+                data-title="Clinic Management API"
+                data-video="https://www.youtube.com/embed/2xhzJjFSKTg?autoplay=1"
+                data-desc="Advanced clinic backend system with doctors, patients, appointments, payments, records and secure role-based access."
+                data-items="Patients, Doctors, Appointments | Invoices, Payments | JWT + Refresh Tokens | Global Exception Handling | Paymob Integration"
               >
-            </div>
-          </div>
-        </div>
+                View Details
+              </a>
 
-        <div class="project-box" data-category="backend">
-          <div class="project-img">
-            <img
-              src="Image/ClinicManagementApi.png"
-              alt="Clinic Management System"
-            />
-          </div>
-
-          <div class="project-content">
-            <h3>Clinic Management System</h3>
-            <p>
-              A comprehensive backend system designed to manage clinic
-              operations such as patients, doctors, appointments, invoices,
-              payments, and medical records. The system follows Clean
-              Architecture principles to ensure scalability, maintainability,
-              and secure role-based access.
-            </p>
-
-            <div class="tags">
-              <span class="tag">ASP.NET Core Web API</span>
-              <span class="tag">Clean Architecture , CQRS & MediatR</span>
-              <span class="tag">Rate Limiting</span>
-              <span class="tag">Custom Problem Details (RFC 9457)</span>
-              <span class="tag">Global Exception Handling</span>
-              <span class="tag">Repository & Unit of Work</span>
-              <span class="tag">JWT Authentication & Refresh Tokens</span>
-              <span class="tag">Payment Gateway Integration (Paymob)</span>
-            </div>
-
-            <div class="project-links">
               <a
                 href="https://github.com/Moaz-Ash0ur/Clinic_Management_System.API.git"
                 class="link-btn source"
@@ -263,94 +234,174 @@
           </div>
         </div>
 
+        <!-- Project 2 -->
         <div class="project-box" data-category="backend">
           <div class="project-img">
-            <img src="Image/InventoryApi.png" alt="Project Name" />
+            <img src="Image/MechanicShopApi.png" />
           </div>
+
           <div class="project-content">
-            <h3>Inventory Management System</h3>
+            <h3>Mechanic Workshop API</h3>
+
             <p>
-              A backend Inventory Management designed to help businesses
-              efficiently manage products, stock levels, purchases, and sales.
-              It ensures accurate tracking and role-based operations for
-              seamless business management.
+              Repair shop management system for vehicles, work orders, staff and
+              customers.
             </p>
 
             <div class="tags">
-              <div class="tags">
-                <span class="tag">.Net core RESTful Api</span>
-                <span class="tag">N-Tier</span>
-                <span class="tag">EF Core & Stored Procedure</span>
-                <span class="tag">Applied Repository & Unit of Work</span>
-              </div>
+              <span class="tag">REST API</span>
+              <span class="tag">MediatR</span>
+              <span class="tag">Testing</span>
             </div>
 
             <div class="project-links">
               <a
-                href="https://github.com/Moaz-Ash0ur/Inventory-Management-API.git"
-                class="link-btn source"
-                >Source</a
+                href="#"
+                class="link-btn live open-modal"
+                data-title="Mechanic Workshop API"
+                data-video="https://www.youtube.com/embed/2xhzJjFSKTg"
+                data-desc="Modern workshop management backend handling repairs, invoices, customers, technicians and workflow operations."
               >
+                View Details
+              </a>
+
+              <a
+                href="https://github.com/Moaz-Ash0ur/MechanicShopWorkshop.API.git"
+                class="link-btn source"
+              >
+                Source
+              </a>
             </div>
           </div>
         </div>
 
-        <div class="project-box" data-category="fullstack">
+        <!-- Project 3 -->
+        <div class="project-box">
           <div class="project-img">
-            <img src="Image/Shipping.png" alt="Project Name" />
+            <img src="Image/Shipping.png" />
           </div>
+
           <div class="project-content">
             <h3>Shipping System</h3>
+
             <p>
-              A comprehensive system for managing shipments, tracking statuses,
-              and handling users & subscriptions. Includes an admin dashboard
-              for multiple roles (Admin, Reviewer, Operation Manager) to manage
-              shipment types, statuses, and operations.
+              Shipment platform with tracking, subscriptions and admin
+              dashboard.
             </p>
 
             <div class="tags">
-              <span class="tag">ASP.NET CORE( MVC | API )</span>
-              <span class="tag">N-Tier</span>
-              <span class="tag">EF Core & Stored Procedure</span>
-              <span class="tag">Factory and Strategy Design Pattern</span>
-              <span class="tag">Integrated PayPal for Payment</span>
+              <span class="tag">MVC</span>
+              <span class="tag">API</span>
+              <span class="tag">PayPal</span>
             </div>
 
             <div class="project-links">
+              <a
+                href="#"
+                class="link-btn live open-modal"
+                data-title="Shipping System"
+                data-video="https://www.youtube.com/embed/2xhzJjFSKTg"
+                data-desc="Complete shipping solution with dashboard, multi roles, subscriptions, payments and shipment tracking."
+              >
+                View Details
+              </a>
+
               <a
                 href="https://github.com/Moaz-Ash0ur/Shipping.git"
                 class="link-btn source"
-                >Source</a
               >
+                Source
+              </a>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="project-box" data-category="fullstack">
-          <div class="project-img">
-            <img src="Image/ecommerce.png" alt="Project Name" />
+    <!-- Modal -->
+    <div class="project-modal" id="projectModal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+
+        <h2 id="modalTitle"></h2>
+        <p id="modalDesc"></p>
+
+        <iframe
+          id="modalVideo"
+          width="100%"
+          height="420"
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+        >
+        </iframe>
+
+        <ul id="modalItems"></ul>
+      </div>
+    </div>
+
+    <section class="blogs-section" id="blogs">
+      <div class="main-text">
+        <h2 class="heading">Blogs</h2>
+        <span>
+          Sharing insights about backend development, system design, and
+          real-world engineering experience.
+        </span>
+      </div>
+
+      <div class="blogs-grid">
+        <!-- Blog Card -->
+        <div class="blog-card">
+          <h3>IUG Research Monitor - AI Academic Assistant</h3>
+
+          <p>
+            Graduation project focused on building an AI-powered platform to
+            analyze and improve academic research.
+          </p>
+
+          <div class="tags">
+            <span class="tag">ASP.NET Core</span>
+            <span class="tag">AI Integration</span>
+            <span class="tag">Clean Architecture</span>
+            <span class="tag">Concurrency</span>
           </div>
-          <div class="project-content">
-            <h3>E-Commerce Website (MVC)</h3>
-            <p>
-              A full-featured online store where users can browse products, add
-              items to cart, place orders and Includes an admin panel to manage
-              products, orders, and users.
-            </p>
 
-            <div class="tags">
-              <span class="tag">ASP.NET Core MVC</span>
-              <span class="tag">Fetch Api & Ajax Call</span>
-              <span class="tag">JavaScript</span>
-            </div>
+          <div class="project-links">
+            <a
+              href="/blogs/IUGMonitorBlog.html"
+              class="link-btn live open-blog"
+            >
+              Read More
+            </a>
+            <a
+              href="https://iug-monitor.vercel.app/"
+              class="demo-btn"
+              target="_blank"
+            >
+              Live Demo
+            </a>
+          </div>
+        </div>
 
-            <div class="project-links">
-              <a
-                href="https://github.com/Moaz-Ash0ur/E-Commerce-WebApp-MVC.git"
-                class="link-btn source"
-                >Source</a
-              >
-            </div>
+        <!-- Blog Card 2 -->
+        <div class="blog-card">
+          <h3>Clean Architecture in Real Projects</h3>
+
+          <p>
+            How I applied Clean Architecture in real backend systems to improve
+            scalability and maintainability.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Architecture</span>
+            <span class="tag">.NET</span>
+            <span class="tag">Backend</span>
+          </div>
+
+          <div class="project-links">
+            <a href="/blogs/CleanArchBlog.html" class="link-btn live open-blog">
+              Read More
+            </a>
           </div>
         </div>
       </div>
