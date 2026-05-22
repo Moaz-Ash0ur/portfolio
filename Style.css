@@ -394,6 +394,12 @@ section {
   line-height: 1.7;
 }
 
+@media (max-width: 768px) {
+  .video-box iframe {
+    width: 100%;
+    height: 220px;
+  }
+}
 /*Skills Section Css ---------------------------------------------------------  */
 
 .skills {
@@ -523,7 +529,7 @@ section {
   box-shadow: var(--neon-box-shadow);
 }
 
-/* @media (max-width: 1024px) {
+@media (max-width: 1024px) {
   .project-container {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -533,13 +539,13 @@ section {
   .project-container {
     grid-template-columns: 1fr;
   }
-} */
+}
 
 /* ================= Final Projects Style ================= */
 
 .project-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   gap: 2rem;
 }
 

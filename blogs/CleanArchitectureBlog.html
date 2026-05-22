@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>IUG Research Monitor | Case Study Blog</title>
+    <title>Clean Architecture in Real-World .NET Systems</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../Style.css" />
 
@@ -18,6 +18,10 @@
         box-sizing: border-box;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         font-family: "Inter", sans-serif;
         background: radial-gradient(circle at top, #0b1220, #050814);
@@ -25,7 +29,7 @@
         line-height: 1.75;
       }
 
-      /* HEADER (connected to portfolio system) */
+      /* HEADER */
       header {
         position: fixed;
         top: 0;
@@ -35,7 +39,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: rgba(5, 8, 20, 0.7);
+        background: rgba(5, 8, 20, 0.72);
         backdrop-filter: blur(12px);
         border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         z-index: 999;
@@ -57,7 +61,6 @@
       .navlist a {
         color: #cbd5e1;
         text-decoration: none;
-        font-size: 17px;
         transition: 0.3s;
       }
 
@@ -68,12 +71,21 @@
 
       /* container */
       .container {
-        max-width: 900px;
+        max-width: 950px;
         margin: auto;
         padding: 130px 24px 80px;
       }
 
-      /* title */
+      .badge {
+        display: inline-block;
+        font-size: 12px;
+        color: #94a3b8;
+        padding: 6px 12px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 999px;
+        margin-bottom: 25px;
+      }
+
       h1 {
         font-size: 3rem;
         font-weight: 700;
@@ -89,18 +101,6 @@
         margin-bottom: 25px;
       }
 
-      /* badge */
-      .badge {
-        display: inline-block;
-        font-size: 12px;
-        color: #94a3b8;
-        padding: 6px 12px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 999px;
-        margin-bottom: 25px;
-      }
-
-      /* tags */
       .tag {
         display: inline-block;
         background: rgba(0, 229, 255, 0.08);
@@ -109,10 +109,10 @@
         border-radius: 999px;
         font-size: 12px;
         margin-right: 8px;
+        margin-bottom: 8px;
         border: 1px solid rgba(0, 229, 255, 0.15);
       }
 
-      /* sections */
       h2 {
         margin-top: 65px;
         margin-bottom: 15px;
@@ -120,6 +120,13 @@
         border-left: 3px solid #00e5ff;
         padding-left: 12px;
         color: #f8fafc;
+      }
+
+      h3 {
+        color: #00e5ff;
+        margin-top: 14px;
+        margin-bottom: 6px;
+        font-size: 1rem;
       }
 
       p,
@@ -136,17 +143,13 @@
         margin-bottom: 8px;
       }
 
-      /* card */
       .box {
         margin-top: 14px;
         padding: 22px;
         border-radius: 14px;
-
         background: rgba(255, 255, 255, 0.03);
         border: 1px solid rgba(255, 255, 255, 0.06);
-
         box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
-
         transition: 0.25s ease;
       }
 
@@ -166,7 +169,17 @@
         );
       }
 
-      /* responsive */
+      .image-box {
+        margin-top: 18px;
+      }
+
+      .image-box img {
+        width: 100%;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+      }
+
       @media (max-width: 768px) {
         h1 {
           font-size: 2.2rem;
@@ -184,7 +197,6 @@
           display: none;
         }
       }
-      
     </style>
   </head>
 
@@ -192,7 +204,9 @@
     <div class="container">
       <header>
         <div class="logo">
-          <li><a style="font-size: x-large;" href="../index.html#home">MOAZ.</a></li>
+          <li>
+            <a style="font-size: x-large" href="../index.html#home">MOAZ.</a>
+          </li>
         </div>
         <ul class="navlist">
           <li><a href="../index.html#home" style="--i: 1">Home</a></li>
@@ -214,141 +228,127 @@
         <div id="menu-icon" class="bx bx-menu"></div>
       </header>
 
-      <h1>IUG Research Monitor</h1>
+      <h1>
+        Clean Architecture in Real-World <br />
+        .NET Systems
+      </h1>
 
       <p class="meta">
-        AI-Powered Academic Assistant for Research Review, Feedback Automation,
-        and Document Intelligence
+        Practical guide to when Clean Architecture matters, how it works, and
+        how it helps build scalable maintainable backend applications.
       </p>
 
+      <span class="tag">.NET</span>
+      <span class="tag">Architecture</span>
       <span class="tag">Backend</span>
-      <span class="tag">AI</span>
-      <span class="tag">ASP.NET Core</span>
-      <span class="tag">Clean Architecture</span>
+      <span class="tag">Best Practices</span>
 
-      <h2>Executive Summary</h2>
+      <div class="image-box">
+        <img src="Images/CleanArchImage.jpg" alt="Clean Architecture Diagram" />
+      </div>
+
+      <h2>Overview</h2>
       <div class="box">
         <p>
-          IUG Research Monitor is an AI-powered academic platform developed to
-          help university students improve research papers through intelligent
-          document analysis, structured feedback, and automated review
-          workflows.
+          Clean Architecture is a software design approach that separates
+          business rules from frameworks, databases, and external tools.
         </p>
 
         <p>
-          The system was designed to reduce manual supervision effort, shorten
-          feedback cycles, and enhance final report quality before submission.
+          The main goal is to keep core logic independent, easier to test,
+          easier to maintain, and safer to scale over time.
         </p>
       </div>
 
       <div class="divider"></div>
 
-      <h2>Problem Statement</h2>
+      <h2>Why It Matters</h2>
       <div class="box">
         <ul>
-          <li>Delayed review cycles between students and supervisors</li>
-          <li>Limited access to continuous academic guidance</li>
-          <li>Large reports requiring time-consuming manual review</li>
-          <li>Generic AI tools not optimized for academic structures</li>
-          <li>Need for scalable feedback across multiple students</li>
-        </ul>
-      </div>
-
-      <h2>Solution Strategy</h2>
-      <div class="box">
-        <p>
-          Built a specialized AI assistant capable of processing academic
-          documents, splitting content into logical sections, evaluating each
-          part, and generating structured recommendations aligned with research
-          standards.
-        </p>
-      </div>
-
-      <h2>My Contributions</h2>
-      <div class="box">
-        <ul>
-          <li>Designed and developed RESTful APIs using ASP.NET Core</li>
-          <li>Implemented AI orchestration and document processing pipeline</li>
+          <li>Separates business logic from infrastructure concerns</li>
+          <li>Makes the system easier to maintain and extend over time</li>
+          <li>Improves testability of core business rules</li>
           <li>
-            Applied Clean Architecture for maintainability and scalability
+            Reduces coupling between application layers and external frameworks
           </li>
-          <li>Optimized async workflows for heavy document operations</li>
-          <li>Improved system stability under concurrent requests</li>
-        </ul>
-      </div>
-
-      <h2>System Architecture</h2>
-      <div class="box">
-        <ul>
-          <li>Presentation Layer → REST API Endpoints</li>
-          <li>Application Layer → Use Cases / Business Logic</li>
-          <li>Domain Layer → Core Entities and Rules</li>
-          <li>Infrastructure Layer → Database, AI APIs, File Services</li>
-        </ul>
-      </div>
-
-      <h2>Tech Stack</h2>
-      <div class="box">
-        <p>
-          ASP.NET Core, SQL Server, Entity Framework Core, OpenAI API, Clean
-          Architecture, Async/Await, SemaphoreSlim, PDF/DOCX Processing
-        </p>
-      </div>
-
-      <h2>Core Features</h2>
-      <div class="box">
-        <ul>
-          <li>PDF / DOCX upload and text extraction</li>
-          <li>Smart chunking based on document sections</li>
-          <li>AI-powered section-by-section feedback</li>
-          <li>Automatic issue detection and recommendations</li>
-          <li>Structured improvement reports</li>
-          <li>Scalable concurrent request handling</li>
-        </ul>
-      </div>
-
-      <h2>Engineering Challenges</h2>
-      <div class="box">
-        <p>
-          <b>Concurrency Control:</b> Managed simultaneous AI requests using
-          SemaphoreSlim to prevent overload and improve throughput.
-        </p>
-
-        <p>
-          <b>Large Documents:</b> Designed asynchronous chunk-processing
-          pipeline to handle long academic reports efficiently.
-        </p>
-
-        <p>
-          <b>Response Latency:</b> Reduced processing bottlenecks through
-          optimized async execution flow.
-        </p>
-      </div>
-
-      <h2>Results & Impact</h2>
-      <div class="box">
-        <ul>
-          <li>Reduced average response time from 12s to 4s</li>
-          <li>Improved system stability under load</li>
-          <li>Enhanced AI feedback consistency</li>
-          <li>Used by 20+ students during project testing</li>
-          <li>Accelerated review and revision workflow</li>
-        </ul>
-      </div>
-
-      <h2>Key Learnings</h2>
-      <div class="box">
-        <ul>
           <li>
-            AI quality depends heavily on preprocessing and chunk structure
+            Supports long-term evolution of the system without major refactoring
           </li>
-          <li>Concurrency management is essential in API-based AI systems</li>
-          <li>Clean Architecture simplifies scaling team projects</li>
-          <li>
-            User-focused systems must solve workflow problems, not only
-            technical ones
-          </li>
+          <li>Improves code clarity in team-based development</li>
         </ul>
+      </div>
+
+      <h2>Core Layers</h2>
+      <div class="box">
+        <h3>Domain Layer</h3>
+        <p>Entities, business rules, and core logic.</p>
+
+        <h3>Application Layer</h3>
+        <p>Use cases, orchestration, commands, queries.</p>
+
+        <h3>Infrastructure Layer</h3>
+        <p>Database, file systems, email, external APIs.</p>
+
+        <h3>Presentation Layer</h3>
+        <p>Controllers, REST APIs, UI entry points.</p>
+      </div>
+
+      <h2>Dependency Flow</h2>
+      <div class="box">
+        <p><b>Dependencies move inward only.</b></p>
+        <p>Presentation → Application → Domain</p>
+
+        <p>Infrastructure implements contracts defined by inner layers.</p>
+      </div>
+
+      <h2>ASP.NET Core Example</h2>
+      <div class="box">
+        <ul>
+          <li>Controller receives request</li>
+          <li>Calls Application Use Case / Handler</li>
+          <li>Application uses Domain rules</li>
+          <li>Infrastructure saves through Repository implementation</li>
+          <li>Response returned cleanly to API client</li>
+        </ul>
+      </div>
+
+      <h2>When to Use It</h2>
+      <div class="box">
+        <ul>
+          <li>Projects expected to grow over time</li>
+          <li>Applications with non-trivial business logic</li>
+          <li>APIs that require clear separation of responsibilities</li>
+          <li>Systems that need maintainability and testability</li>
+        </ul>
+      </div>
+
+      <h2>Common Mistakes</h2>
+      <div class="box">
+        <ul>
+          <li>Using it for tiny CRUD apps without need</li>
+          <li>Creating too many abstractions</li>
+          <li>Mixing Infrastructure logic inside Domain</li>
+          <li>Following patterns without understanding trade-offs</li>
+          <li>Overengineering simple requirements</li>
+        </ul>
+      </div>
+
+      <h2>Real-World Usage</h2>
+      <div class="box">
+        <ul>
+          <li>Business management systems</li>
+          <li>Internal company dashboards</li>
+          <li>Medium to large backend APIs</li>
+        </ul>
+      </div>
+
+      <h2>Final Summary</h2>
+      <div class="box">
+        <p>
+          Clean Architecture is not about adding complexity. It is about
+          protecting business logic, improving maintainability, and preparing
+          systems for long-term growth.
+        </p>
       </div>
     </div>
   </body>

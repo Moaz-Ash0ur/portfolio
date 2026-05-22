@@ -170,7 +170,6 @@ const modalDesc = document.getElementById("modalDesc");
 const modalVideo = document.getElementById("modalVideo");
 const modalItems = document.getElementById("modalItems");
 
-
 openBtns.forEach((btn) => {
   btn.addEventListener("click", function (e) {
     e.preventDefault();
@@ -181,10 +180,9 @@ openBtns.forEach((btn) => {
     modalDesc.innerText = this.dataset.desc;
     modalVideo.src = this.dataset.video;
 
-    modalItems.innerHTML = this.dataset.items
-      .split("|")
-      .map((i) => `<li>${i.trim()}</li>`)
-      .join("");
+    const items = JSON.parse(this.dataset.items || "[]");
+
+    modalItems.innerHTML = items.map((i) => `<li>- ${i}</li>`).join("");
   });
 });
 
