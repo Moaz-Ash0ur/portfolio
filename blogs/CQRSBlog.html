@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CQRS & MediatR in Real-World .NET Systems</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../Style.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: radial-gradient(circle at top, #0b1220, #050814);
+        color: #e5e7eb;
+        line-height: 1.75;
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 18px 10%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(5, 8, 20, 0.72);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        z-index: 999;
+      }
+
+      .logo a {
+        color: #00e5ff;
+        text-decoration: none;
+        font-weight: 800;
+        letter-spacing: 1px;
+      }
+
+      .navlist {
+        display: flex;
+        gap: 20px;
+        list-style: none;
+      }
+
+      .navlist a {
+        color: #cbd5e1;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      .navlist a:hover,
+      .navlist a.active {
+        color: #00e5ff;
+      }
+
+      .container {
+        max-width: 950px;
+        margin: auto;
+        padding: 130px 24px 80px;
+      }
+
+      .tag {
+        display: inline-block;
+        background: rgba(0, 229, 255, 0.08);
+        color: #00e5ff;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 12px;
+        margin-right: 8px;
+        margin-bottom: 8px;
+        border: 1px solid rgba(0, 229, 255, 0.15);
+      }
+
+      h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        background: linear-gradient(90deg, #00e5ff, #6366f1, #a855f7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      h2 {
+        margin-top: 65px;
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+        border-left: 3px solid #00e5ff;
+        padding-left: 12px;
+        color: #f8fafc;
+      }
+
+      h3 {
+        color: #00e5ff;
+        margin-top: 14px;
+        margin-bottom: 6px;
+        font-size: 1rem;
+      }
+
+      p,
+      li {
+        color: #cbd5e1;
+        font-size: 15.5px;
+      }
+
+      ul {
+        padding-left: 18px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .box {
+        margin-top: 14px;
+        padding: 22px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+      }
+
+      .divider {
+        height: 1px;
+        margin: 70px 0;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(0, 229, 255, 0.25),
+          transparent
+        );
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.2rem;
+        }
+
+        header {
+          padding: 14px 5%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <a href="../index.html#home">MOAZ.</a>
+        </div>
+
+        <ul class="navlist">
+          <li><a href="../index.html#home" style="--i: 1">Home</a></li>
+          <li><a href="../index.html#about" style="--i: 1"> About</a></li>
+          <li><a href="../index.html#skills" style="--i: 1">Skills</a></li>
+
+          <li><a href="../index.html#projects " style="--i: 1">Projects</a></li>
+          <li>
+            <a href="../index.html#blogs" style="--i: 1" class="active"
+              >Blogs</a
+            >
+          </li>
+
+          <li>
+            <a href="../index.html#education " style="--i: 1">Education</a>
+          </li>
+          <li><a href="../index.html#contact" style="--i: 1"> Contact</a></li>
+        </ul>
+      </header>
+
+      <h1>CQRS & MediatR in Real-World .NET Systems</h1>
+
+      <p>
+        A practical explanation of how CQRS and MediatR improve backend
+        architecture, scalability, and code organization in modern .NET systems.
+      </p>
+
+      <span class="tag">.NET</span>
+      <span class="tag">CQRS</span>
+      <span class="tag">MediatR</span>
+      <span class="tag">Backend Architecture</span>
+
+      <h2>Overview</h2>
+      <div class="box">
+        <p>
+          CQRS (Command Query Responsibility Segregation) is a design pattern
+          that separates read and write operations in an application.
+        </p>
+        <p>
+          MediatR is a library that helps implement CQRS by decoupling requests
+          from their handlers.
+        </p>
+      </div>
+
+      <div class="divider"></div>
+
+      <h2>What is CQRS?</h2>
+      <div class="box">
+        <ul>
+          <li>Separates Commands (write) from Queries (read)</li>
+          <li>Improves scalability and clarity of business logic</li>
+          <li>Allows independent optimization of read/write models</li>
+          <li>Reduces complexity in large systems</li>
+        </ul>
+      </div>
+
+      <h2>What is MediatR?</h2>
+      <div class="box">
+        <p>
+          MediatR is a .NET library that implements the mediator pattern.
+          Instead of controllers directly calling services, they send requests
+          to handlers through a mediator.
+        </p>
+
+        <ul>
+          <li>Decouples controllers from business logic</li>
+          <li>Centralizes request handling</li>
+          <li>Supports pipelines (logging, validation, caching)</li>
+        </ul>
+      </div>
+
+      <h2>Core Structure</h2>
+      <div class="box">
+        <h3>Command</h3>
+        <p>Represents an action that changes state (Create, Update, Delete).</p>
+
+        <h3>Query</h3>
+        <p>Represents a read-only operation (Get data).</p>
+
+        <h3>Handler</h3>
+        <p>Executes the logic for each command or query.</p>
+      </div>
+
+      <h2>How It Works</h2>
+      <div class="box">
+        <ul>
+          <li>Controller sends a Command or Query</li>
+          <li>MediatR receives the request</li>
+          <li>It routes it to the correct Handler</li>
+          <li>Handler executes business logic</li>
+          <li>Response is returned to controller</li>
+        </ul>
+      </div>
+
+      <h2>Why Use CQRS & MediatR?</h2>
+      <div class="box">
+        <ul>
+          <li>Cleaner and more maintainable code</li>
+          <li>Better separation of concerns</li>
+          <li>Improved scalability for large systems</li>
+          <li>Easier testing of business logic</li>
+          <li>Reduces tight coupling between layers</li>
+        </ul>
+      </div>
+
+      <h2>Real-World Example</h2>
+      <div class="box">
+        <ul>
+          <li>User sends request: CreateOrderCommand</li>
+          <li>Controller calls Mediator.Send(command)</li>
+          <li>Handler processes order creation logic</li>
+          <li>Database is updated</li>
+          <li>Response returned (Order ID / status)</li>
+        </ul>
+      </div>
+
+      <h2>Common Mistakes</h2>
+      <div class="box">
+        <ul>
+          <li>Using CQRS for very small applications</li>
+          <li>Over-splitting simple CRUD operations</li>
+          <li>Putting too much logic in controllers</li>
+          <li>Creating too many unnecessary handlers</li>
+        </ul>
+      </div>
+
+      <h2>When to Use It</h2>
+      <div class="box">
+        <ul>
+          <li>Medium to large backend systems</li>
+          <li>Complex business logic applications</li>
+          <li>Systems requiring clear separation of concerns</li>
+          <li>APIs expected to scale over time</li>
+        </ul>
+      </div>
+
+      <h2>Final Summary</h2>
+      <div class="box">
+        <p>
+          CQRS and MediatR are not about complexity—they are about clarity. When
+          used correctly, they make .NET applications easier to scale, test, and
+          maintain.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

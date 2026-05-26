@@ -6,6 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MOAZ MOHAMMAD | BACKEND DEVELOPER</title>
     <link rel="stylesheet" href="Style.css" />
+
+    <meta
+      name="google-site-verification"
+      content="CRSp9B4n4rGB6vxp9wp9FlFqzMx2hupDDVmaZhitMPE"
+    />
+    <meta
+      name="description"
+      content="Personal portfolio of Moaz Mohammad - Backend Developer specializing in ASP.NET Core, C#, and Web APIs."
+    />
+
+    <meta
+      name="keywords"
+      content="Moaz, .NET Developer, C#, ASP.NET, Backend Developer, Portfolio"
+    />
+
+    <meta name="robots" content="index, follow" />
+
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
@@ -199,7 +216,9 @@
       </div>
 
       <div class="project-container">
-        <div class="project-box" data-category="backend">
+        <!-- Project 1 -->
+
+        <div class="project-box" data-category="All">
           <div class="project-img">
             <img src="Image/IUGMonitor.png" />
           </div>
@@ -256,7 +275,7 @@
           </div>
         </div>
 
-        <!-- Project 1 -->
+        <!-- Project 2 -->
         <div class="project-box" data-category="backend">
           <div class="project-img">
             <img src="Image/ClinicManagementApi.png" />
@@ -305,7 +324,7 @@
           </div>
         </div>
 
-        <!-- Project 2 -->
+        <!-- Project 3 -->
         <div class="project-box" data-category="backend">
           <div class="project-img">
             <img src="Image/MechanicShopApi.png" />
@@ -354,8 +373,8 @@
           </div>
         </div>
 
-        <!-- Project 3 -->
-        <div class="project-box">
+        <!-- Project 4 -->
+        <div class="project-box" data-category="All">
           <div class="project-img">
             <img src="Image/Shipping.png" />
           </div>
@@ -401,6 +420,57 @@
             </div>
           </div>
         </div>
+
+        <!-- Project 5 -->
+
+        <div class="project-box" data-category="backend">
+          <div class="project-img">
+            <img src="Image/Inventory.png" alt="Inventory Management System" />
+          </div>
+
+          <div class="project-content">
+            <h3>Inventory Management API</h3>
+
+            <p>
+              Comprehensive RESTful Web API designed to efficiently manage
+              products, stock levels, purchases, and sales.
+            </p>
+
+            <div class="tags">
+              <span class="tag">.NET 9</span>
+              <span class="tag">Web API</span>
+              <span class="tag">SQL Server</span>
+              <span class="tag">EF Core</span>
+              <span class="tag">JWT</span>
+            </div>
+
+            <div class="project-links">
+              <a
+                href="#"
+                class="link-btn live open-modal"
+                data-title="Inventory Management System (RESTful Web API)"
+                data-video="https://www.youtube.com/embed/2xhzJjFSKTg"
+                data-desc="A layered architecture web application for tracking stock flow, automating purchase/sales workflows, and securing user operations via ASP.NET Identity and role-based validation."
+                data-items='[
+          "Product & Stock Management (Track items, categories, and physical quantities in real-time)",
+          "Purchase & Sales Workflow (Manage full order lifecycle from supplier to customer)",
+          "Role-Based Access Control (Admin with full access, Inventory Manager for warehouse operations)",
+          "Design Patterns: Built using Repository Pattern and Unit of Work for high scalability"
+        ]'
+              >
+                View Details
+              </a>
+
+              <a
+                href="https://github.com/Moaz-Ash0ur/Inventory-Management-API.git"
+                class="link-btn source"
+                target="_blank"
+              >
+                Source
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -429,6 +499,7 @@
     <section class="blogs-section" id="blogs">
       <div class="main-text">
         <h2 class="heading">Blogs</h2>
+
         <span>
           Sharing insights about backend development, system design, and
           real-world engineering experience.
@@ -438,62 +509,112 @@
       <div class="blogs-grid">
         <!-- Blog Card -->
         <div class="blog-card">
-          <h3>IUG Research Monitor — AI Research Assistant</h3>
-
-          <p>
-            AI-powered platform designed to analyze academic papers, generate
-            structured feedback, and improve research quality for students.
-          </p>
-
-          <div class="tags">
-            <span class="tag">ASP.NET Core</span>
-            <span class="tag">OpenAI</span>
-            <span class="tag">Clean Architecture</span>
-            <span class="tag">Performance</span>
+          <div class="blog-image">
+            <img
+              src="./blogs/images/IUG-Monitor.png"
+              alt="AI Research Assistant"
+            />
           </div>
 
-          <div class="project-links">
-            <a
-              href="./blogs/IUGMonitorBlog.html"
-              class="link-btn live open-blog"
-            >
-              Read Case Study
-            </a>
+          <div class="blog-content">
+            <h3>IUG Research Monitor — AI Research Assistant</h3>
 
-            <a
-              href="https://iug-monitor.vercel.app/"
-              class="demo-btn"
-              target="_blank"
-            >
-              Live Demo
-            </a>
+            <p>
+              AI-powered platform designed to analyze academic papers, generate
+              structured feedback, and improve research quality for students.
+            </p>
+
+            <div class="tags">
+              <span class="tag">ASP.NET Core</span>
+              <span class="tag">OpenAI</span>
+              <span class="tag">Clean Architecture</span>
+              <span class="tag">Performance</span>
+            </div>
+
+            <div class="project-links">
+              <a
+                href="./blogs/IUGMonitorBlog.html"
+                class="link-btn live open-blog"
+              >
+                Read Case Study
+              </a>
+
+              <a
+                href="https://iug-monitor.vercel.app/"
+                class="demo-btn"
+                target="_blank"
+              >
+                Live Demo
+              </a>
+            </div>
           </div>
         </div>
 
         <!-- Blog Card 2 -->
         <div class="blog-card">
-          <h3>Clean Architecture in Real-World .NET Systems</h3>
-
-          <p>
-            Practical guide explaining how Clean Architecture improves
-            scalability, maintainability, and testability in modern backend
-            applications.
-          </p>
-
-          <div class="tags">
-            <span class="tag">.NET</span>
-            <span class="tag">Architecture</span>
-            <span class="tag">Backend</span>
-            <span class="tag">Best Practices</span>
+          <div class="blog-image">
+            <img
+              src="./blogs/images/Clean architecture.png"
+              alt="Clean Architecture"
+            />
           </div>
 
-          <div class="project-links">
-            <a
-              href="./blogs/CleanArchitectureBlog.html"
-              class="link-btn live open-blog"
-            >
-              Read Article
-            </a>
+          <div class="blog-content">
+            <h3>Clean Architecture in Real-World .NET Systems</h3>
+
+            <p>
+              Practical guide explaining how Clean Architecture improves
+              scalability, maintainability, and testability in modern backend
+              applications.
+            </p>
+
+            <div class="tags">
+              <span class="tag">.NET</span>
+              <span class="tag">Architecture Pattern</span>
+              <span class="tag">Backend</span>
+              <span class="tag">Clean Architecture</span>
+              <span class="tag">Best Practices</span>
+            </div>
+
+            <div class="project-links">
+              <a
+                href="./blogs/CleanArchitectureBlog.html"
+                class="link-btn live open-blog"
+              >
+                Read Article
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blog Card 3 -->
+        <div class="blog-card">
+          <div class="blog-image">
+            <img src="./blogs/images/CQRS.png" alt="CQRS and MediatR" />
+          </div>
+
+          <div class="blog-content">
+            <h3>Architecting Scalable .NET APIs with CQRS & MediatR</h3>
+
+            <p>
+              Deep dive into CQRS and MediatR patterns in ASP.NET Core, covering
+              clean request pipelines, scalable architecture, and lean
+              controller design.
+            </p>
+
+            <div class="tags">
+              <span class="tag">CQRS</span>
+              <span class="tag">MediatR</span>
+              <span class="tag">ASP.NET Core</span>
+              <span class="tag">Clean Architecture</span>
+              <span class="tag">Architecture Pattern</span>
+            </div>
+
+            <div class="project-links">
+              <a href="./blogs/CQRSBlog.html" class="link-btn live open-blog">
+                Read Article
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -630,8 +751,8 @@
             </ul>
             <ul>
               <li><a href="#about">About</a></li>
-              <li><a href="#Education">Education</a></li>
-              <li><a href="#Blog">Blog</a></li>
+              <li><a href="#education">Education</a></li>
+              <li><a href="#blogs">Blog</a></li>
             </ul>
           </div>
         </div>
